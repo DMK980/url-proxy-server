@@ -1,1 +1,17 @@
-{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
+{ 
+  "version": 2,
+  "rewrites": [
+    { "source": "/(.*)",
+      "destination": "/api"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/shortening",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" }
+      ]
+    }
+  ]
+}
