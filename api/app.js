@@ -6,7 +6,9 @@ const bodyParser = require('body-parser')
 const app = express();
 const port = 3000
 
-app.use(cors())
+app.use(cors({
+    origin: ["https://url-shortening-api-dmk980s-projects.vercel.app/","https://url-shortening-api-one-eta.vercel.app/"]
+}))
 app.use(bodyParser.json());
   
 app.get('/',(req,res)=>{
@@ -41,4 +43,6 @@ app.post('/shortening',async (req,res)=>{
 app.listen(port,()=>{
     console.log(`app listening on port ${port}`)
 })
+
+module.exports = app
 
