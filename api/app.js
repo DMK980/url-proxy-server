@@ -12,6 +12,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type']
 }))
 app.use(bodyParser.json());
+app.options("*",cors())
   
 app.get('/',(req,res)=>{
     res.json({message:"Hello World!"})
