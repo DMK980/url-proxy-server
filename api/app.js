@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const app = express();
-const port = 3000
+// const port = 3000
  
 app.use(cors())
 app.use(bodyParser.json());
@@ -15,10 +15,10 @@ app.options('*', (req, res) => {
   res.status(204).end(); // No content response
 });
 
-  
 app.get('/',(req,res)=>{
     res.json({message:"Hello World!"})
 })
+
 app.post('/shortening',async (req,res)=>{
 
     function inputValidation(url){
@@ -45,9 +45,9 @@ app.post('/shortening',async (req,res)=>{
     }
 })
 
-app.listen(port,()=>{
-    console.log(`app listening on port ${port}`)
-})
+// app.listen(port,()=>{
+//     console.log(`app listening on port ${port}`)
+// })
 
 module.exports = app
 
