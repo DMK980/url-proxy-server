@@ -6,15 +6,13 @@ const bodyParser = require('body-parser')
 const app = express();
 const port = 3000
  
-app.use(cors({
-  origin:"https://url-shortening-api-one-eta.vercel.app/",
-  methods:[GET,POST],
-  allowedHeaders: ['Content-Type']
-}))
+app.use(cors())
 app.use(bodyParser.json());
-app.options("*",cors())
-app.options('/shortening', (req, res) => {
-  res.status(204).send(); // Success with no content
+app.options('*', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(204).end(); // No content response
 });
 
   
