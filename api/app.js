@@ -6,7 +6,11 @@ const bodyParser = require('body-parser')
 const app = express();
 const port = 3000
 
-app.use(cors())
+app.use(cors({
+  origin:"https://url-shortening-api-one-eta.vercel.app/",
+  methods:[GET,POST],
+  allowedHeaders: ['Content-Type']
+}))
 app.use(bodyParser.json());
   
 app.get('/',(req,res)=>{
