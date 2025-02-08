@@ -13,6 +13,10 @@ app.use(cors({
 }))
 app.use(bodyParser.json());
 app.options("*",cors())
+app.options('/shortening', (req, res) => {
+  res.status(204).send(); // Success with no content
+});
+
   
 app.get('/',(req,res)=>{
     res.json({message:"Hello World!"})
