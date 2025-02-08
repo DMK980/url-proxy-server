@@ -1,8 +1,8 @@
 { 
   "version": 2,
   "rewrites": [
-    { "source": "/(.*)",
-      "destination": "/api"
+    { "source": "/api/(.*)",
+      "destination": "/api/app.js"
     }
   ],
   "headers": [
